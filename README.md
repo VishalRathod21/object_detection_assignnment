@@ -16,6 +16,20 @@ The repository includes a sample inference result saved in `outputs/results.png`
 
 ---
 
+## Input / Output Example
+
+Below is a paired example showing the original input image and the model's output visualization saved in the `outputs/` folder.
+
+**Input:**
+
+![Input image](outputs/image.png)
+
+**Output (inference result):**
+
+![Output image](outputs/results.png)
+
+---
+
 ## Repository Contents
 
 - `train.py` — training loop, dataset loading, checkpoint saving
