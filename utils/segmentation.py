@@ -56,11 +56,7 @@ def calculate_area(mask):
 
 def draw_detections(image_bgr, boxes, scores, labels,
                     class_names=CLASS_NAMES, draw_masks=True):
-    """
-    Image pe boxes, labels, masks draw karo.
-    
-    Returns: annotated image (copy)
-    """
+
     result = image_bgr.copy()
 
     for box, score, label in zip(boxes, scores, labels):
