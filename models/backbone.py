@@ -18,11 +18,7 @@ class ConvBNReLU(nn.Module):
 
 
 class ResBlock(nn.Module):
-    """
-    Residual block — skip connection se gradient flow better hota hai
-    Bottleneck design: channels ghata ke wapis badhata hai
-    """
-
+ 
     def __init__(self, channels):
         super().__init__()
         mid = channels // 2
@@ -45,7 +41,7 @@ def make_stage(in_ch, out_ch, num_blocks):
 
 class CustomBackbone(nn.Module):
     """
-    DarkNet-inspired architecture — scratch se banaya
+    DarkNet-inspired architecture 
 
     Input  : (B, 3,    416, 416)
     -------
