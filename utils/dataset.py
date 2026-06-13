@@ -134,10 +134,6 @@ class HelmetDataset(Dataset):
 
 
 def collate_fn(batch):
-    """
-    Variable number of boxes per image hote hain
-    isliye custom collate function zaroori hai
-    """
     images, boxes_list, labels_list = zip(*batch)
     images = torch.stack(images, dim=0)
     return images, list(boxes_list), list(labels_list)
