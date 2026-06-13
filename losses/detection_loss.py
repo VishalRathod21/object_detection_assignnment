@@ -6,10 +6,7 @@ from models.detector import HelmetDetector, ANCHORS
 
 
 def box_iou(b1, b2):
-    """
-    b1, b2: (..., 4) in x1y1x2y2 format
-    Returns IoU of same shape (...)
-    """
+
     ix1 = torch.max(b1[..., 0], b2[..., 0])
     iy1 = torch.max(b1[..., 1], b2[..., 1])
     ix2 = torch.min(b1[..., 2], b2[..., 2])
@@ -46,13 +43,7 @@ def box_giou(pred, target):
 
 
 class FocalLoss(nn.Module):
-    """
-    Binary Focal Loss (per element)
-    FL(pt) = -alpha * (1-pt)^gamma * log(pt)
-    
-    gamma=2 → easy examples ka weight near-zero ho jaata hai
-    alpha   → class imbalance handle karta hai
-    """
+ 
 
     def __init__(self, alpha=0.25, gamma=2.0, reduction='mean'):
         super().__init__()
@@ -74,9 +65,7 @@ class FocalLoss(nn.Module):
 
 
 class TargetBuilder:
-    """
-    Ground-truth boxes ko grid cells aur anchors se match karta hai.
-    """
+  
     
     def __init__(self, anchors_list, num_classes=4, img_size=416):
         self.anchors_list = anchors_list   # 3 scales ke anchors
@@ -182,7 +171,7 @@ class DetectionLoss(nn.Module):
     def forward(self, outputs, gt_boxes_list, gt_labels_list):
         """
         outputs       : tuple of 3 raw tensors from model
-        gt_boxes_list : list[Tensor(N,4)] normalized cx cy w h
+        gt_boxes_list : list[Tensor(N,4)] normalized cx cy w 
         gt_labels_list: list[Tensor(N,)]
         """
         device  = outputs[0].device
